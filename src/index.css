@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navigation-height: 60px;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    @apply scroll-smooth bg-background font-sans dark:bg-dark-background;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+  }
+
+  .text-gradiant {
+    background: linear-gradient(
+        90.05deg,
+        rgba(6, 255, 168, 0.2) 1.03%,
+        rgba(255, 235, 60, 0.2) 26.84%,
+        rgba(254, 187, 63, 0.2) 53.17%,
+        rgba(201, 90, 253, 0.2) 100.14%
+      ),
+      linear-gradient(0deg, #7366ff, #7366ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .social-text-gradient-dark {
+    background: linear-gradient(
+      180deg,
+      #979da7 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
