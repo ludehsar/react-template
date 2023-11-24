@@ -61,7 +61,7 @@ const useCartProvider = () => {
       setCartProducts((prevProducts) => {
         const newProducts = [...prevProducts];
         newProducts[productInd].quantity--;
-        if (newProducts[productInd].quantity === 0) {
+        if (newProducts[productInd].quantity <= 0) {
           return newProducts.filter(
             (product) => product.productId !== productId,
           );
