@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { UseFormSetValue } from 'react-hook-form';
-import { Button } from '../Button';
+import { Button } from '..';
 
 export interface RadioInputProps {
   setValue: UseFormSetValue<any>;

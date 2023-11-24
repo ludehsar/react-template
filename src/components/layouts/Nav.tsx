@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CiShoppingCart } from 'react-icons/ci';
-import { AppEndpoints } from '../../utils';
+import { AppEndpoints } from '@/utils';
 
 export const Nav: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
-import { Chip } from '../Chip';
+import { Chip } from '..';
 
 export interface RightDrawerProps {
   open: boolean;

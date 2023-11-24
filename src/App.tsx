@@ -1,7 +1,6 @@
-import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Cart, _404, Home } from './pages';
-import { AppEndpoints } from './utils';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Home, _404, Cart } from '@/pages';
+import { AppEndpoints } from '@/utils';
 
 const router = createBrowserRouter([
   {
