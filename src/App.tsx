@@ -1,16 +1,17 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { About, _404, Home } from './pages';
+import { Cart, _404, Home } from './pages';
+import { AppEndpoints } from './utils';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: AppEndpoints.HOME,
     element: <Home />,
     errorElement: <_404 />,
   },
   {
-    path: '/about',
-    element: <About />,
+    path: AppEndpoints.CART,
+    element: <Cart />,
   },
 ]);
 

@@ -11,11 +11,11 @@ export const _404: React.FC = () => {
               <h1 className="my-2 text-2xl font-bold text-secondary-dark">
                 Looks like you've found the doorway to the great nothing
               </h1>
-              <p className="my-2 text-md text-secondary">
+              <p className="my-2 text-md text-muted">
                 Sorry about that! Please visit our hompage to get where you need
                 to go.
               </p>
-              <button className="md focus:ring-indigo-700 my-2 rounded-md bg-primary px-8 py-4 text-center text-md text-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-opacity-50 sm:w-full lg:w-auto">
+              <button className="md my-2 rounded border bg-primary px-8 py-4 text-center text-md text-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-opacity-90 sm:w-full lg:w-auto">
                 <Link to="/">Take me there!</Link>
               </button>
             </div>

@@ -1,5 +1,10 @@
 import React from 'react';
+import { Layout, StoreHeading } from '../components';
 
 export const Home: React.FC = () => {
-  return <div>Home</div>;
+  return (
+    <Layout>
+      <StoreHeading />
+    </Layout>
+  );
 };
