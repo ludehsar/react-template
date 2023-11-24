@@ -1,5 +1,5 @@
 import { SingleCartProduct } from '@/contexts';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useCartSummary = (cartProducts: SingleCartProduct[]) => {
   const [subtotal, setSubtotal] = useState<number>(0);
