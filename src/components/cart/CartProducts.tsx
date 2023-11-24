@@ -52,7 +52,7 @@ export const CartProducts: React.FC = () => {
               </div>
             </td>
             <td className="py-4 text-md">
-              ${product.product.price * product.quantity}
+              ${(product.product.price * product.quantity).toFixed(2)}
             </td>
           </tr>
         ))}
