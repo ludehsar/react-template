@@ -1,12 +1,13 @@
+import { ProductApiData } from '@/types';
 import { createContext, useContext, useState } from 'react';
 
 export interface SingleCartProduct {
-  productId: number;
+  product: ProductApiData;
   quantity: number;
 }
 
 export interface CartContextProps {
-  addToCart: (productId: number) => void;
+  addToCart: (product: ProductApiData) => void;
   cartProducts: SingleCartProduct[];
   decreaseQuantity: (productId: number) => void;
   increaseQuantity: (productId: number) => void;
@@ -30,24 +31,25 @@ export function CartProvider({ children }: React.PropsWithChildren) {
 const useCartProvider = () => {
   const [cartProducts, setCartProducts] = useState<SingleCartProduct[]>([]);
 
-  const addToCart = (productId: number) => {
-    if (cartProducts.find((product) => product.productId === productId)) {
+  const addToCart = (product: ProductApiData) => {
+    if (cartProducts.find((p) => p.product.id === product.id)) {
       return;
     }
     setCartProducts((prevProducts) => [
       ...prevProducts,
-      { productId, quantity: 1 },
+      { product, quantity: 1 },
     ]);
   };
 
   const increaseQuantity = (productId: number) => {
     const productInd = cartProducts.findIndex(
-      (product) => product.productId === productId,
+      (product) => product.product.id === productId,
     );
     if (productInd >= 0) {
+      const newQuantity = cartProducts[productInd].quantity + 1;
       setCartProducts((prevProducts) => {
         const newProducts = [...prevProducts];
-        newProducts[productInd].quantity++;
+        newProducts[productInd].quantity = newQuantity;
         return newProducts;
       });
     }
@@ -55,15 +57,16 @@ const useCartProvider = () => {
 
   const decreaseQuantity = (productId: number) => {
     const productInd = cartProducts.findIndex(
-      (product) => product.productId === productId,
+      (product) => product.product.id === productId,
     );
     if (productInd >= 0) {
+      const newQuantity = cartProducts[productInd].quantity - 1;
       setCartProducts((prevProducts) => {
         const newProducts = [...prevProducts];
-        newProducts[productInd].quantity--;
+        newProducts[productInd].quantity = newQuantity;
         if (newProducts[productInd].quantity <= 0) {
           return newProducts.filter(
-            (product) => product.productId !== productId,
+            (product) => product.product.id !== productId,
           );
         }
         return newProducts;

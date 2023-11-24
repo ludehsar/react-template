@@ -1,6 +1,9 @@
+import { useCart } from '@/contexts';
 import React from 'react';
 
 export const CartProducts: React.FC = () => {
+  const { cartProducts, decreaseQuantity, increaseQuantity } = useCart();
+
   return (
     <table className="w-full">
       <thead>
@@ -12,31 +15,47 @@ export const CartProducts: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className="py-4">
-            <div className="flex items-center">
-              <img
-                className="mr-4 h-16 w-16"
-                src="https://via.placeholder.com/150"
-                alt="Product image"
-              />
-              <span className="text-md font-semibold">Product name</span>
-            </div>
-          </td>
-          <td className="py-4 text-md">$19.99</td>
-          <td className="py-4">
-            <div className="flex items-center">
-              <button className="mr-2 rounded-md border px-4 py-2 text-md">
-                -
-              </button>
-              <span className="w-8 text-center text-md">1</span>
-              <button className="ml-2 rounded-md border px-4 py-2 text-md">
-                +
-              </button>
-            </div>
-          </td>
-          <td className="py-4 text-md">$19.99</td>
-        </tr>
+        {cartProducts.map((product) => (
+          <tr key={product.product.id}>
+            <td className="py-4">
+              <div className="flex items-center">
+                <img
+                  className="mr-4 h-16 w-16"
+                  src={product.product.image}
+                  alt={product.product.title}
+                />
+                <span className="text-md font-semibold">
+                  {product.product.title}
+                </span>
+              </div>
+            </td>
+            <td className="py-4 text-md">
+              ${product.product.price.toFixed(2)}
+            </td>
+            <td className="py-4">
+              <div className="flex items-center">
+                <button
+                  className="mr-2 rounded-md border px-4 py-2 text-md"
+                  onClick={() => decreaseQuantity(product.product.id)}
+                >
+                  -
+                </button>
+                <span className="w-8 text-center text-md">
+                  {product.quantity}
+                </span>
+                <button
+                  className="ml-2 rounded-md border px-4 py-2 text-md"
+                  onClick={() => increaseQuantity(product.product.id)}
+                >
+                  +
+                </button>
+              </div>
+            </td>
+            <td className="py-4 text-md">
+              ${product.product.price * product.quantity}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

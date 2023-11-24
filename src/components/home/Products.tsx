@@ -15,13 +15,7 @@ export const Products: React.FC = () => {
   return (
     <Container className="mx-auto mb-10 grid max-w-screen-lg grid-cols-4 gap-x-4 gap-y-4">
       {productsData?.data.map((product) => (
-        <ProductCard
-          key={product.id}
-          description={product.description}
-          imageSrc={product.image}
-          price={product.price}
-          title={product.title}
-        />
+        <ProductCard key={product.id} {...product} />
       ))}
     </Container>
   );
