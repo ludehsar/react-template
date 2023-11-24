@@ -1,3 +1,4 @@
+import { AppEndpoints } from '@/utils';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ export const _404: React.FC = () => {
                 to go.
               </p>
               <button className="md my-2 rounded border bg-primary px-8 py-4 text-center text-md text-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-opacity-90 sm:w-full lg:w-auto">
-                <Link to="/">Take me there!</Link>
+                <Link to={AppEndpoints.HOME}>Take me there!</Link>
               </button>
             </div>
           </div>
