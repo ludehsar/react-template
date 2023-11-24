@@ -79,6 +79,6 @@ const useCartProvider = () => {
   };
 };
 
-export const useAxios = () => {
+export const useCart = () => {
   return useContext(CartContext);
 };
